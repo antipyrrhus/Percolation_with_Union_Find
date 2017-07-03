@@ -16,7 +16,10 @@ public class InteractivePercolationVisualizer {
     public static void main(String[] args) {
         // N-by-N percolation system (read from command-line, default = 10)
         int N = 10;
-        if (args.length == 1) N = Integer.parseInt(args[0]);
+        if (args.length == 1) {
+        	N = Integer.parseInt(args[0]);
+        	if (N < 10 || N > 100) throw new RuntimeException("ERROR: Please input an integer between 10 and 100.");
+        }
 
         // repeatedly open site specified my mouse click and draw resulting system
         StdOut.println(N);
